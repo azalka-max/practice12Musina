@@ -1,0 +1,81 @@
+﻿<Page x:Class="Library.Pages.BooksPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Library.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BooksPage">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Поиск:" 
+                       VerticalAlignment="Center" 
+                       Margin="0,0,6,0" />
+            <TextBox Name="TBSearch"
+                     TextChanged="TBSearch_TextChanged" 
+                     Style="{StaticResource TbBP}"/>
+
+            <TextBlock Text="Автор:" 
+                       VerticalAlignment="Center" 
+                       Margin="10,0,6,0" />
+            <TextBox Name="TBAuthor" 
+                     TextChanged="TBAuthor_TextChanged"
+                     Style="{StaticResource TbBP}"/>
+
+            <TextBlock Text="Жанр:" 
+                       VerticalAlignment="Center" 
+                       Margin="10,0,6,0" />
+            <ComboBox Name="CBGenre" 
+                      Width="150" 
+                      SelectionChanged="CBGenre_SelectionChanged" />
+
+            <Button Content="Сбросить" 
+                    x:Name="btnReset"
+                    Margin="10,0,0,0" 
+                    Click="btnReset_Click"/>
+        </StackPanel>
+
+        <ListView Name="LVBooks" Grid.Row="1" Margin="0,0,0,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название" Width="300" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Авторы" Width="200" DisplayMemberBinding="{Binding IdAuthors}" />
+                    <GridViewColumn Header="Жанр" Width="120" DisplayMemberBinding="{Binding Genre}" />
+                    <GridViewColumn Header="Год" Width="60" DisplayMemberBinding="{Binding YearOfPublicatin}" />
+                    <GridViewColumn Header="Статус" Width="60" DisplayMemberBinding="{Binding Status}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" 
+                    Grid.Row="2" 
+                    HorizontalAlignment="Left">
+
+            <Button Content="Назад"
+                    x:Name="btnExit"
+                    Click="btnExit_Click"
+                    Style="{StaticResource btnBP}"/>
+
+            <Button Content="Добавить"
+                    x:Name="btnAdd"
+                    Click="btnAdd_Click"
+                    Style="{StaticResource btnBP}"/>
+            <Button Content="Редактировать" 
+                    x:Name="btnEdit"
+                    Click="btnEdit_Click"
+                    Style="{StaticResource btnBP}"/>
+            <Button Content="Удалить"
+                    x:Name="btnDelete"
+                    Click="btnDelete_Click"
+                    Style="{StaticResource btnBP}"/>
+        </StackPanel>
+    </Grid>
+</Page>
