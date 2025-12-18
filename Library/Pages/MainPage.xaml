@@ -13,7 +13,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <StackPanel DockPanel.Dock="Left" Width="180" Background="#FFC0975F"  Grid.Column="0">
             <TextBlock Text="Навигация" 
                            Margin="10" 
